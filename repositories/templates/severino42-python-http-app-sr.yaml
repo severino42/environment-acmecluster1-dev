@@ -1,0 +1,23 @@
+apiVersion: jenkins.io/v1
+kind: SourceRepository
+metadata:
+  annotations:
+    jenkins.io/last-build-number-for-master: "2"
+  creationTimestamp: null
+  labels:
+    owner: severino42
+    provider: github
+    repository: python-http-app
+  name: severino42-python-http-app
+spec:
+  description: Imported application for severino42/python-http-app
+  httpCloneURL: https://github.com/severino42/python-http-app.git
+  org: severino42
+  provider: https://github.com
+  providerKind: github
+  providerName: github
+  repo: python-http-app
+  scheduler:
+    kind: ""
+    name: ""
+  url: https://github.com/severino42/python-http-app.git

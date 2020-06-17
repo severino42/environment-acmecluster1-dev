@@ -1,0 +1,21 @@
+apiVersion: jenkins.io/v1
+kind: SourceRepository
+metadata:
+  creationTimestamp: null
+  labels:
+    owner: severino42
+    provider: github
+    repository: python-http-quickstart
+  name: severino42-python-http-quickstart
+spec:
+  description: Imported application for severino42/python-http-quickstart
+  httpCloneURL: https://github.com/severino42/python-http-quickstart.git
+  org: severino42
+  provider: https://github.com
+  providerKind: github
+  providerName: github
+  repo: python-http-quickstart
+  scheduler:
+    kind: ""
+    name: ""
+  url: https://github.com/severino42/python-http-quickstart.git

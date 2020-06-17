@@ -1,0 +1,7 @@
+dependencies:
+- host: github.com
+  owner: severino42
+  repo: python-http-app
+  url: https://github.com/severino42/python-http-app.git
+  version: ""
+  versionURL: ""
