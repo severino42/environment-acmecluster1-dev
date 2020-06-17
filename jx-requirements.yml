@@ -1,35 +1,83 @@
+autoUpdate:
+  enabled: false
+  schedule: ""
+bootConfigURL: https://github.com/jenkins-x/jenkins-x-boot-config.git
 cluster:
-  clusterName: ""
-  environmentGitOwner: ""
-  environmentGitPublic: false
-  project: ""
+  azure: {}
+  clusterName: acmecluster1
+  devEnvApprovers:
+  - severino42
+  environmentGitOwner: severino42
+  environmentGitPublic: true
+  gitKind: github
+  gitName: github
+  gitServer: https://github.com
+  namespace: jx
+  project: jenkinsx-severino
   provider: gke
-  zone: ""
-gitops: true
+  registry: gcr.io
+  zone: us-east4-b
 environments:
-- key: dev
-- key: staging
-- key: production
+- ingress:
+    domain: 34.86.161.219.nip.io
+    externalDNS: false
+    namespaceSubDomain: -jx.
+    tls:
+      email: ""
+      enabled: false
+      production: false
+  key: dev
+  repository: environment-acmecluster1-dev
+- ingress:
+    domain: ""
+    externalDNS: false
+    namespaceSubDomain: ""
+    tls:
+      email: ""
+      enabled: false
+      production: false
+  key: staging
+  repository: environment-acmecluster1-staging
+- ingress:
+    domain: ""
+    externalDNS: false
+    namespaceSubDomain: ""
+    tls:
+      email: ""
+      enabled: false
+      production: false
+  key: production
+  repository: environment-acmecluster1-production
+gitops: true
 ingress:
-  domain: ""
+  domain: 34.86.161.219.nip.io
   externalDNS: false
+  namespaceSubDomain: -jx.
   tls:
     email: ""
     enabled: false
     production: false
 kaniko: true
-secretStorage: local
+repository: nexus
+secretStorage: vault
 storage:
+  backup:
+    enabled: false
+    url: ""
   logs:
-    enabled: false
-    url: ""
+    enabled: true
+    url: gs://acmecluster1-logs-5532d247-8f6c-4f59-91d7-aba03f351c34
   reports:
-    enabled: false
-    url: ""
+    enabled: true
+    url: gs://acmecluster1-reports-7c601312-0c1f-4101-9ed7-084c00306e
   repository:
-    enabled: false
-    url: ""
+    enabled: true
+    url: gs://acmecluster1-repository-fcff8fcc-2e94-43c6-a9fa-f1edb0e
+vault: {}
+velero:
+  schedule: ""
+  ttl: ""
 versionStream:
-  ref: "master"
-  url: https://github.com/jenkins-x/jenkins-x-versions.git
-webhook: lighthouse
+  ref: v0.0.16
+  url: https://github.com/cloudbees/cloudbees-jenkins-x-versions.git
+webhook: prow

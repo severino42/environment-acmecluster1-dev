@@ -1,0 +1,10 @@
+adminUser:
+  password: vault:acmecluster1/adminUser:password
+  username: admin
+enableDocker: false
+pipelineUser:
+  email: severino42@gmail.com
+  token: vault:acmecluster1/pipelineUser:token
+  username: severino42
+prow:
+  hmacToken: vault:acmecluster1/prow:hmacToken
